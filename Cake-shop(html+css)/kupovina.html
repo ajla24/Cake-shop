@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Spirala 1</title>
+	<link rel="stylesheet" href="stil.css">
+	<meta name="viewport" content="width=device-width" />
+</head>
+<body>
+<h1><img src="cake-logo.gif" class="logo" alt="slika"></h1>
+<div class="sve">
+	<div class="meni">
+		<ul>
+			<li><a href="cake-shop.html">Home</a></li>
+			<li><a href="Onama.html">O nama</a></li>
+			<li ><a href="Proizvodi.html">Proizvodi</a></li>
+			<li><a href="Kupovina.html">Kupovina</a></li>
+			<li><a href="Galerija.html">Galerija</a></li>
+			<li><a href="Kontakt.html">Kontakt</a></li>			
+		</ul>
+	</div>
+	
+	
+	<h2> Naručite torte i kolače za sebe i svoje najmilije, obradujte ih omiljenom poslasticom!<br></h2>
+	<form>
+	<div class="red">
+		<div class="kolona dva puna"> 
+			<div class="red">
+				<div class="kolona">
+					<fieldset>
+					<legend>Osobne informacije:</legend>
+					Ime:<br>
+					<input type="text" name="firstname" value="Ajla"><br>
+					Prezime:<br>
+					<input type="text" name="lastname" value="Sakic"><br>
+					Adresa:<br>
+					<input type="text" name="adress" value="Sarajevska bb"><br>
+					Telefon:<br>
+					<input type="tel" name="telefon" value="067885566"><br>
+					Email:<br>
+					<input type="email" name="mail" value="neki@gmail.com"><br><br>
+					
+					<input type="submit" value="Unesi">
+					</fieldset>
+				</div>	
+				<div class="kolona">
+				<fieldset>
+					<legend>Narudzba:</legend>
+					Datum:<br>
+					<input type="date" name="datum"><br>
+					Kolaci:<br>
+					<input list="lista_kolaca"> <datalist id="lista_kolaca">
+															<option value="kolac1">
+															<option value="kolac2">
+															</datalist>
+					<input type="number" name="kolicina" min="0" max="10" step="1" value="1"><br>
+					Torte:<br>
+					<input list="lista_torti"><datalist id="lista_torti">
+															<option value="torta1">
+															<option value="torta2">
+															</datalist>
+					<input type="number" name="kolicina" min="0" max="10" step="1" value="1"><br>
+					Napomene i dodatne informacije:<br>
+					<textarea name="message" rows="4" cols="25"></textarea><br><br>
+					
+					
+					<input type="submit" value="Unesi">
+				</fieldset>
+				</div>
+							
+			</div>
+		</div>
+		<div class="kolona dva"><fieldset>
+					<legend>Vaša Narudzba:</legend>
+					
+					Ovdje ce biti podaci o narudzbi nakon sto se popuni i validira forma!
+					<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+					<input type="submit" value="POTVRDI NARUDZBU" class="desno">
+				</fieldset>
+		</div>
+		
+	</div>
+	</form>
+	<div class="kraj">
+		<p>&copy; Copyright, All Right Reserved<p>
+	</div>
+</div>
+</body>
+</html>
