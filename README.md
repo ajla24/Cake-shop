@@ -5,7 +5,7 @@ stavljeni u folder, kao jpg slike, i u tom folderu se nalaze i mockupsi za izgle
 Takodje stavljen i izvorni fajl gdje su rađeni mockupsi(u axure rp 8, naziv fajla mockup)
 
 Lista fajlova:
-1.MOCKUP.RP-
+1.MOCKUP.RP-fajl sa mockupsima
 2.Galerija desktop.jpg	- predstavlja izgled naše podstranice galerija.html za veličinu ekrana width:500px i više
 3.Home desktop.jpg	- predstavlja izgled naše glave stanice cake-shop.html za veličinu ekrana 500px i više
 4.Kontakt desktop.jpg	- predstavlja izgled naše podstranice kontakt.html za veličinu ekrana 500px i više
