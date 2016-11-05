@@ -1,0 +1,205 @@
+body{
+	background-color: #FDF2E9;
+	background-image: url("pozadina4.jpg");
+	padding: 0;
+	width: 100%;
+	margin: 0 auto;
+	min-width: 500px;
+	max-width: 1200px;
+}
+
+h1{
+	background-image: url("2.jpg");
+	background-size: 100%;
+	margin: 0 auto;
+	padding:0;
+	text-align: center;
+	opacity: 0.9;
+	width:100%;
+}
+
+h2{
+	margin:1%;
+	text-align:center;
+	color: #580000;
+}
+
+
+h3{
+	text-align:center;
+	color:#580000;
+	font-size: 150%;
+	color:red;
+}
+
+.lijevo{
+	text-align:left;
+}
+.centar{
+	text-align:center;
+}
+
+.logo{
+	max-height:130px;
+	max-width:130px;
+}
+
+ul {
+	font-family: arial;
+	font-weight: bold;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+	width: 100%;
+	background-color: #c5e8ec;
+	overflow: hidden;
+}
+
+li {
+    float: left;
+	border-right: 2px solid #FDF2E9;
+	/*border: 2px solid #580000;
+	border-left:none;*/
+}
+
+li a{
+	color: #580000;
+	text-decoration:none;
+	display: block;
+    padding: 8px;
+}
+
+li a:hover:not(.active){
+	background-color: #580000;
+	color: #FDF2E9; 
+}
+
+li a:active{
+	background-color: red;
+}
+
+.desno{
+	float:right;
+	border-right:none;
+	border-left: 2px solid #FDF2E9; 
+}
+
+.red{
+	width:99%;
+	margin: 0;
+	float:left;
+}
+
+.kolona{
+	display: inline-block; 
+	float:left;
+	margin:1%;
+	padding:5px;
+}
+
+.kolona.cetiri{
+	width: 18%;
+}
+
+.kolona:last-child{
+	margin-right: 0px;
+}
+
+.kolona.tri{
+	width:26%;
+}
+.kolona.dva{
+	width:43%;
+}
+
+.puna{
+	border-style: solid;
+	border-color: #580000 ;
+	border-width: 6px;	
+}
+.dupla{
+	border-style: double;
+	border-color: #625D5D;
+	border-width: 6px;
+}
+
+.kraj{
+	text-align:center;
+	float:center;
+}
+
+/*ovo je druga stranica*/
+
+.glavni{
+	float: left;
+	margin-right: 2%;
+	width: 58%; 
+	}
+
+.onama{
+	width: 95%;
+	padding: .625em 1.0548523% 1.5em; /* 10px/16px, 10px/948, 24px/16px */
+	margin: auto 0;
+}
+
+.sporedni {
+float: right;
+width: 40%;
+}
+
+.slika{
+	width: 350px;
+	height: 220px;
+}
+
+.slika_on
+{
+	max-height: 500px;
+	max-width:500px;
+}
+
+.crveno_centritano{
+	text-align:center;
+	color: red;
+	font-weight: bold;
+}
+
+.mapa{
+	background-image: url("mapa.png");
+	min-width: 225px;
+	min-height:163px;
+	background-position: center;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
+	li{
+		float: none;
+		border-bottom: 2px solid #FDF2E9;
+	}
+	
+	h2{
+		text-align:left;
+	}
+	
+	h3{
+		text-align:left;
+	}
+	
+	.desno{
+		float: none;
+		border-bottom: none;
+	}
+	
+	.kolona.dva{
+		width:80%;
+	}
+	.kolona.tri {
+		width:80%;
+	}
+	.kolona.cetiri{
+		width:80%;
+	}
+}
