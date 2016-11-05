@@ -33,4 +33,18 @@ Lista fajlova:
 13.proizvodi mobilna.jpg - predstavlja izgled naše podstranice proizvodi.html za veličinu ekrana max-width:500px
 ----
 
-14.stil.css predstavlja css datoteku koja sadrzi klase,stilove itd, za modeliranje izgleda naših elemenata u htmlu
+14.stil.css - predstavlja css datoteku koja sadrzi klase,stilove itd, za modeliranje izgleda naših elemenata u htmlu
+
+15.cake-shop.html - naša izvorna stranica, sadrzi kod kako su html elementi upotrebljeni i koristeni, koje klase smo koristili, itd.
+
+16.onama.html - jedna od podstranica, sadrzi svoj html kod, kako smo koristili elemente...
+
+17.proizvodi.html - jedna od podstranica, sadrzi svoj html kod, kako smo koristili elemente...
+
+18.kupovina.html - jedna od podstranica, sadrzi svoj html kod, kako smo koristili elemente...
+
+19.galerija.html - jedna od podstranica, sadrzi svoj html kod, kako smo koristili elemente...
+
+20.kontakt.html - jedna od podstranica, sadrzi svoj html kod, kako smo koristili elemente...
+
+ostalo su slike koje su nam trebale jer smo ih koristili u .html faljlovima
