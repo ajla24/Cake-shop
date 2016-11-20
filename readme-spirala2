@@ -1,0 +1,36 @@
+Read me SPIRALA 2
+
+a)
+
+Sva polja forme imaju neku validaciju, putem regex u vecini slucajeva, potrebno je otovoriti
+tab kupovina, gdje imammo validacije za unos podataka o kupcu, validaciju, i pregled
+isto tako pored se nalazi unos narudzbe, validacija, i pregled po zelji, prije slanja
+narudzbe, ukoliko nije isparavna dugmic potvrdi narudzbu ce izbaciti upozorenje gdje
+greska, i polje ce postati blago crveno.
+
+isto vrijedi i za Onama->Kontakt
+gdje mozemo naci validacu da ime mora biti ispravno uneseno, a Prezime mora biti isravno ali moze i da se ne unese
+isto tako mail mora biti isparavan a i poruka mora imati neki text da bi prosla validacija i da bi se omogucilo
+dugme submit.
+
+Proizvodi imaju checkbox i zavisi od onog sta oznacimo te cemo prozvode vidjeti
+u slucaju da su oba chekirana bit ce i torte i kolaci, u slucaju da nije nijedan onda nista
+
+-----------------
+b)
+
+#dropdown meni, tacnije na klik onama-> otvaraju se jos dvije opcije, gdje vidimo da mozemo
+izabrati Kontakt ili historijat i zavisno od toga dalje nam se otvaraju stranice,
+
+#Galerija slika sa opcijom da se na klik slika raširi preko cijelog ekrana, a na escape da se vrati pogled nazad na galeriju
+tacnije klikom na galerija imamo slike i tu je postignuto ovo sto je trazeno u zadatku
+
+------------------------------------
+c)
+
+index.html je osnovna stranica, dalje klikovima na nas meni mozemo doci do ostalih,
+bez reloada cijele stranice,
+Kod nije prepisan, nego ako podsjeca na neciji to je zato sto je pisan po uzoru
+na zadatke predvidjenje za vjezbanje sa zadnjeg tutorijala, naravno prilagodjen datom problemu.
+
+
