@@ -42,20 +42,10 @@
 		
 		// 
 		
-		echo 'Wrote: ' . $doc->save("test.xml") . ' bytes.<br>';
+		$doc->save("test.xml");
 		
 		$xml=simplexml_load_file("test.xml") or die("Error: Cannot create object");
-		print_r($xml);
-		
-		echo "<br>";
-		
-	/* 	foreach($xml->children() as $osobe) { 
-		echo $osobe->ime; 
-		} */
-
-		
-      } 
-	  
+	  }
 	  
     ?>
 
@@ -82,12 +72,8 @@
 	<div class="red">
 	<h2>NOVOSTI I OBAVJEŠTENJA</h2>
 	
-		<div class="kolona dva dupla"><div class="crveno_centritano" id="novost">Novo u ponudi!!</div><br>Probajte naš novi čokoladni okus! <b>Nutela-cake</b> je idealan za sve ljubitelje čokolade.
+		<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br>Probajte naš novi čokoladni okus! <b>Nutela-cake</b> je idealan za sve ljubitelje čokolade.
 		Ako ste i Vi među njima, obavezno nas posjetite!</div>
-		
-		<button onclick="f_izmijeni()">izmijeni</button>
-		
-		<input type="text" value="<?php print_r($xml); ?>">
 		
 		<div class="kolona dva dupla"><div class="crveno_centritano">Obavještenje</div><br>Obavještavamo naše drage i vjerne kupce, da će za vrijeme praznika 25.11. naše radno vrijeme biti
 		skraćeno <b>(08:00-12:00 sati)</b>.
@@ -115,4 +101,3 @@
 	
 </body>
 </html>
-	
