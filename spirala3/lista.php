@@ -11,22 +11,31 @@
 	
 </head>
 <body>
-<?php
 
-$xml=simplexml_load_file("test.xml") or die("Error: Cannot create object");
-		print_r($xml);
-
-
-
-		?>
 	 
 	<h2> IZVJEŠTAJ </h2>
 	
 	<div>
-	<label>Novost: <br> </label>
-	<textarea rows="5" cols="70" id="novost" name="novost" value="<?php print_r($xml) ?>" ></textarea>
-	<button type="button" value="Spasi" onclick="spasiNovost()"> Spasi </button>
-	<button type="button" value="Unesi" onclick="funkc()"> Pregled narudzbe </button>
+	<form method="POST" action="izvjestaj.php"><input type='submit' name='pdf' value='Generiši izvještaj' /></form>
+	<?php
+	require('/fpdf/fpdf.php');
+
+			$pdf = new FPDF();
+			$pdf->AddPage();
+			$pdf->SetFont('Times','B',19);
+			$pdf->Write(3, 'Korisnici Cake Shopa');
+			$pdf->Ln(20);
+			$xml = simplexml_load_file("izvjestaj.xml");
+			foreach ($xml->korisnik as $korisnik) {
+				
+				$pdf->Write(2, 'Ime korisnika: ' . $korisnik->ime);
+				$pdf->Ln(10);
+				$pdf->Write(2, 'E-Mail adresa korisnika: ' . $korisnik->mail);
+				$pdf->Ln(30);
+				}
+			$pdf->Output('F', 'izvjestaj.pdf');
+		
+		?>
 
 	</div>
 	

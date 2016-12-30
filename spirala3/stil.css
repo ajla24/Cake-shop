@@ -258,3 +258,19 @@ width: 40%;
         width: 100%;
     }
 }
+
+.recepat{
+	float: left;
+	width: 45%;
+	margin: 4px;
+	background: #ffa50080;
+	padding: 4px;
+}
+
+#recept{
+	background: #ff82004d;
+margin: 0 auto;
+text-align: center;
+width: 300px;
+padding: 10px;
+}

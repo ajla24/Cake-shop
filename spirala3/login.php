@@ -9,19 +9,13 @@
 	<script src="jquery.min.js"></script>
 </head>
 <body>
+
 <?php
    ob_start();
    session_start();
 ?>
 
-<?
-   // error_reporting(E_ALL);
-   // ini_set("display_errors", 1);
-?>
-
-
-
-<h1><img src="cake-logo.gif" class="logo" alt="logo"></h1>
+	<h1><img src="cake-logo.gif" class="logo" alt="logo"></h1>
 
 	<div class="meni">
       <ul>
@@ -34,49 +28,67 @@
 				<div id="myDropdown" class="dropdown-sadrzaj">
 				<a href="#" onclick="pribavi_stranicu('onama.php',4)">Historija</a>
 				<a href="#" onclick="pribavi_stranicu('kontakt.php',4)">Kontakt</a>				
+				</div>
 				</div></li>
-				</div>			
+			<li><a href="#" onclick="pribavi_stranicu('lista.php',5)" class="meni_opcija">Izvjestaj</a></li>
+			<?php
+				if(!isset($_SESSION['login'])) print "<li><a href='login.php' class='meni_opcija'>Login</a></li>";
+				else print "<li><a href='admin.php' class='meni_opcija'>Admin</a></li>
+				<li><a href='logout.php' class='meni_opcija'>Logout</a></li>";
+			?>
+			
 		</ul>
 	</div>
 	
 	<label><br><br>Unesite username i pasword</label>
     
          
-         <?php
-            $msg = '';
-            
-            if (isset($_POST['login']) && !empty($_POST['username']) 
-               && !empty($_POST['password'])) {
-				
-               if ($_POST['username'] == 'admin' && 
-                  $_POST['password'] == '1234') {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = 'admin';
-                  
-                  echo '<br>Unijeli ste tacan username admin i password 1234, logujemo Vas, pričekajte...';
-				  
-				  header('Refresh: 2; URL = index.php');
-               }else {
-                  $msg = 'Unijeli ste pogresan username i pasvord!';
-               }
-            }
-         ?>
+         
 		 
       
       <div class = "container">
       
          <form role = "form" 
-            action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); 
-            ?>" method = "post">
+            action = "admin.php" method = "post">
             <label><br>Username:</label><br>
             <input type = "text" name = "username" placeholder = "username = admin" 
                required autofocus></br>
             <label>Password:</label><br>
-			<input type = "password" name = "password" placeholder = "password = 1234" required><br><br>
+			<input type = "password" name = "password" placeholder = "password = admin" required><br><br>
             <button type = "submit" name = "login">Login</button><br>
-			<?php echo $msg; ?>
+			
          </form>
+		 
+		 
+		 <?php
+            $msg = '';
+            
+            if (isset($_POST['login']) && !empty($_POST['username']) 
+               && !empty($_POST['password'])) {
+				
+                $user = $_POST['username'];
+				$pass = $_POST['password'];
+				$xml=simplexml_load_file("login.xml") or die("Error: Nemoguce ucitati login.xml");
+				
+				if($xml->{'username'} == $user && $xml->{'password'}==$pass) {
+						
+					
+                  $_SESSION['login'] = true;
+                  header('Location: admin.php');
+                  
+				}
+				else{
+					$_SESSION['login'] = false;
+					 header('Refresh: 2; URL = login.php');
+				}
+				 
+               }
+			   else {
+				  
+                  $msg = 'Unijeli ste pogresan username i pasvord!';
+               }
+            
+         ?>
 			
 <div><br>Klikni da ponistis <a href = "logout.php" tite = "Logout">sesiju.</div>
          

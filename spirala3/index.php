@@ -66,6 +66,12 @@
 				</div>
 				</div></li>
 			<li><a href="#" onclick="pribavi_stranicu('lista.php',5)" class="meni_opcija">Izvjestaj</a></li>
+			<?php
+				if(!isset($_SESSION['valid'])) print "<li><a href='login.php' class='meni_opcija'>Login</a></li>";
+				else print "<li><a href='admin.php' class='meni_opcija'>Admin</a></li>
+				<li><a href='logout.php' class='meni_opcija'>Logout</a></li>";
+			?>
+			
 		</ul>
 	</div>
 	<div id="glavni">
