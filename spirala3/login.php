@@ -19,76 +19,73 @@
 
 	<div class="meni">
       <ul>
-			<li><a href="#" onclick="pribavi_stranicu('cake-shop.php',0)" class="meni_opcija bijelo">Home</a></li>
-			<li><a href="#" onclick="pribavi_stranicu('proizvodi.php',1)" class="meni_opcija">Proizvodi</a></li>
-			<li><a href="#" onclick="pribavi_stranicu('kupovina.php',2)" class="meni_opcija">Kupovina</a></li>
-			<li><a href="#" onclick="pribavi_stranicu('galerija.php',3)" class="meni_opcija">Galerija</a></li>
-			<li><div class="dropdown">
-				<button onclick="meni_funkcija()" class="dropbtn" class="meni_opcija">O nama</button>
-				<div id="myDropdown" class="dropdown-sadrzaj">
-				<a href="#" onclick="pribavi_stranicu('onama.php',4)">Historija</a>
-				<a href="#" onclick="pribavi_stranicu('kontakt.php',4)">Kontakt</a>				
-				</div>
-				</div></li>
-			<li><a href="#" onclick="pribavi_stranicu('lista.php',5)" class="meni_opcija">Izvjestaj</a></li>
-			<?php
-				if(!isset($_SESSION['login'])) print "<li><a href='login.php' class='meni_opcija'>Login</a></li>";
-				else print "<li><a href='admin.php' class='meni_opcija'>Admin</a></li>
-				<li><a href='logout.php' class='meni_opcija'>Logout</a></li>";
-			?>
+			<li><a href = "index.php">Vrati se na meni </a></li>
+			
+			
 			
 		</ul>
-	</div>
-	
-	<label><br><br>Unesite username i pasword</label>
-    
-         
-         
-		 
+	</div>   
       
-      <div class = "container">
-      
-         <form role = "form" 
-            action = "admin.php" method = "post">
+		 <div class = "container kolona jedan puna">
+		
+		<form id="recept" method="POST" action="">
+			
+				
             <label><br>Username:</label><br>
             <input type = "text" name = "username" placeholder = "username = admin" 
                required autofocus></br>
             <label>Password:</label><br>
-			<input type = "password" name = "password" placeholder = "password = admin" required><br><br>
-            <button type = "submit" name = "login">Login</button><br>
+			<input type = "password" name = "password" placeholder = "password = adminpass" required><br><br>
+            <input type="submit" name='login' value="Log In"/>
 			
          </form>
+		
+	
 		 
-		 
-		 <?php
-            $msg = '';
-            
-            if (isset($_POST['login']) && !empty($_POST['username']) 
-               && !empty($_POST['password'])) {
-				
-                $user = $_POST['username'];
-				$pass = $_POST['password'];
-				$xml=simplexml_load_file("login.xml") or die("Error: Nemoguce ucitati login.xml");
-				
-				if($xml->{'username'} == $user && $xml->{'password'}==$pass) {
-						
-					
-                  $_SESSION['login'] = true;
-                  header('Location: admin.php');
-                  
-				}
-				else{
-					$_SESSION['login'] = false;
-					 header('Refresh: 2; URL = login.php');
-				}
-				 
-               }
-			   else {
-				  
-                  $msg = 'Unijeli ste pogresan username i pasvord!';
-               }
-            
-         ?>
+            <?php
+	
+	//DB configuration Constants
+	define('_HOST_NAME_', 'localhost');
+	define('_USER_NAME_', 'wt8user');
+	define('_DB_PASSWORD', 'wt8pass');
+	define('_DATABASE_NAME_', 'wt8');
+	
+	//PDO Database Connection
+	try {
+		$veza = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
+		$veza->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$veza->exec("set names utf8");
+	} catch(PDOException $e) {
+		echo 'ERROR: ' . $e->getMessage();
+	}
+	
+	if(isset($_POST['login'])){
+		$errMsg = '';
+		//username and password sent from Form
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		
+		// query
+	$result = $veza->prepare("SELECT * FROM korisnici WHERE username= :hjhjhjh AND password= :asas");
+	$result->bindParam(':hjhjhjh', $username);
+	$result->bindParam(':asas', $password);
+	$result->execute();
+	$rows = $result->fetch(PDO::FETCH_NUM);
+	if($rows > 0) {
+		$_SESSION['username'] = $username;
+		{
+			if($username == 'admin')
+				 header("location: admin.php");
+			else header("location: index.php");
+	}}
+	else{
+	$errMsg= 'Username and Password are not found';
+	}
+	}
+
+ 
+?>
+ 
 			
 <div><br>Klikni da ponistis <a href = "logout.php" tite = "Logout">sesiju.</div>
          

@@ -9,33 +9,51 @@
 	 <script src="jquery.min.js"></script>
 </head>
 <body>
+<?php
+      
+	  
+	  session_start();
 
-	<div class="red">
-	<h2>NOVOSTI I OBAVJEŠTENJA</h2>
+
+$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+     $veza->exec("set names utf8");
+	 
+	 $rezultat = $veza->query("select * from pocetna");
+	 
+	 if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     }
+	 
+
+	 
 	
-		<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br>Probajte naš novi čokoladni okus! <b>Nutela-cake</b> je idealan za sve ljubitelje čokolade.
-		Ako ste i Vi među njima, obavezno nas posjetite!</div>
-		
-		<div class="kolona dva dupla"><div class="crveno_centritano">Obavještenje</div><br>Obavještavamo naše drage i vjerne kupce, da će za vrijeme praznika 25.11. naše radno vrijeme biti
-		skraćeno <b>(08:00-12:00 sati)</b>.
-		</div>
-	</div>
+
+
+
+    ?>
+<div class="red">
+	<h2>NOVOSTI I OBAVJEŠTENJA</h2>
+	<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php  $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}?></div>
+
+<div class="kolona dva dupla"><div class="crveno_centritano">Obavjestenje!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='obavjestenje') echo $novosti['text'];}?></div></div>
 	
 	<div class="red"> 
 	<h3>SPECIJALNA PONUDA</h3>
 		
 		<div class="kolona dva puna">
-			<div class="crveno_centritano">Ponuda MJESECA!</div><br>Ne propustite Vaše omiljene torte po akcijskim cijenama, samo ovaj mjesec
-			naša najprodavanija <b>Monte torta snižena 30%!</b>
+			<div class="crveno_centritano">Ponuda MJESECA!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='ponudaMjeseca') echo $novosti['text'];}?>
 		</div>
 		
 		<div class="kolona dva puna">
-			<div class="crveno_centritano">Ponuda DANA!</div><br>Samo danas, uz kupovinu <b>bilo koja dva kolača, treći gratis!</b> 
-			Uživajte u divnom danu uz kolač više!
-		</div>
+			<div class="crveno_centritano">Ponuda DANA!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='ponudaDana') echo $novosti['text'];}?>
 	</div>
 
-	<div class="kraj">
+	<div class="kraj red">
 	<p>&copy; Copyright, All Right Reserved</p>
 	</div>
 

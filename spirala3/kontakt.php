@@ -9,12 +9,10 @@
 </head>
 <body>
 <?php
-      if (isset($_REQUEST['ime'])) {
-        print "<p>Poslali ste: ".$_REQUEST['ime']."</p>";
-      } 
-	  
-	  
-    ?>
+
+
+
+?>
 
 	
 	
@@ -32,24 +30,24 @@
 	
 	<h2 class="lijevo">Pošalji poruku</h2>	
 	
-		<form name="kontakt-forma" id="kontakt-forma" action="index.php" method="get">
+		<form name="kontakt-forma" id="kontakt-forma" action="insert.php" method="POST">
 			<div class="kolona">Ime (i prezime):<br>
-				<input type="text" id="ime" name="ime"><br>
+				<input type="text" id="ime" name="ime" required><br>
 				<br>Email:<br>
-				<input type="email" id="email" name="email"></div>	
+				<input type="email" id="email" name="email" required></div>	
 			<div class="kolona">
 				Poruka:<br>
 				<textarea rows="5" cols="70" id="poruka" name="poruka" required></textarea></div>
 				<div class="kolona">
 				<br><br>
 				
-				<input type="submit" value="Posalji poruku" onclick="validacijaFormeKontakt()">
+				<input type="submit" value="Posalji poruku" name="sesija-kontakt" onclick="validacijaFormeKontakt()">
 				<button onclick="pregledajPoruke()">Pregledaj poruke</button>
 				<script>
 				
 	
 
-				<div id="greska"> </div>				
+								
 			</div>
 		</form>			
 	</div>

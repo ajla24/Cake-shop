@@ -10,43 +10,28 @@
 </head>
 <body>
 <?php
-      if (isset($_REQUEST['ime'])) {
-        print "<p>Poslali ste: ".$_REQUEST['ime']."</p>";
-		
-		$doc = new DOMDocument('1.0');
-
-		$doc->formatOutput = true;
-
-		 // sprema osobu i njenu poruku sa kontakt forme
-		 
-		$root = $doc->createElement('osoba');
-		$root = $doc->appendChild($root);
-
-		$ime = $doc->createElement('ime');
-		$ime = $root->appendChild($ime);
-
-		$text = $doc->createTextNode($_REQUEST['ime']);
-		$text = $ime->appendChild($text);
-		
-		$email = $doc->createElement('email');
-		$email = $root->appendChild($email);
-
-		$text = $doc->createTextNode($_REQUEST['email']);
-		$text = $email->appendChild($text);
-		
-		$poruka = $doc->createElement('poruka');
-		$poruka = $root->appendChild($poruka);
-
-		$text = $doc->createTextNode($_REQUEST['poruka']);
-		$text = $poruka->appendChild($text);
-		
-		// 
-		
-		$doc->save("test.xml");
-		
-		$xml=simplexml_load_file("test.xml") or die("Error: Cannot create object");
-	  }
+      
 	  
+	  session_start();
+
+
+$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+     $veza->exec("set names utf8");
+	 
+	 $rezultat = $veza->query("select * from pocetna");
+	 
+	 if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     }
+	 
+
+	 
+	
+
+
+
     ?>
 
 
@@ -65,45 +50,68 @@
 				<a href="#" onclick="pribavi_stranicu('kontakt.php',4)">Kontakt</a>				
 				</div>
 				</div></li>
-			<li><a href="#" onclick="pribavi_stranicu('lista.php',5)" class="meni_opcija">Izvjestaj</a></li>
+			
 			<?php
-				if(!isset($_SESSION['valid'])) print "<li><a href='login.php' class='meni_opcija'>Login</a></li>";
-				else print "<li><a href='admin.php' class='meni_opcija'>Admin</a></li>
-				<li><a href='logout.php' class='meni_opcija'>Logout</a></li>";
+				if(!isset($_SESSION['username']))
+				{
+					print "<li class='desno'><a href='login.php' class='meni_opcija'>Login</a></li>";
+				}
+				
+				else 
+				{
+					
+					if($_SESSION['username']=='admin')
+					{
+						print "<li><a href='admin.php' class='meni_opcija'>Admin-opcije</a></li>";
+					}
+					
+					print "<li class='desno'><a href='logout.php' class='meni_opcija'>Logout</a></li>";
+					
+				}
+				
+
 			?>
 			
 		</ul>
+		<h2> <?php
+					
+	 
+	if(isset($_SESSION['username']))
+	{
+		$username = $_SESSION['username'];
+		echo "Dobrodošli, ".$username."!";
+		}			
+			?> </h2>
+			
 	</div>
 	<div id="glavni">
 	<div class="red">
 	<h2>NOVOSTI I OBAVJEŠTENJA</h2>
 	
-		<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br>Probajte naš novi čokoladni okus! <b>Nutela-cake</b> je idealan za sve ljubitelje čokolade.
-		Ako ste i Vi među njima, obavezno nas posjetite!</div>
-		
-		<div class="kolona dva dupla"><div class="crveno_centritano">Obavještenje</div><br>Obavještavamo naše drage i vjerne kupce, da će za vrijeme praznika 25.11. naše radno vrijeme biti
-		skraćeno <b>(08:00-12:00 sati)</b>.
-		</div>
-	</div>
 	
-	<div class="red"> 
+<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}?></div>
+
+<div class="kolona dva dupla"><div class="crveno_centritano">Obavjestenje!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='obavjestenje') echo $novosti['text'];}?></div>
+		
+
+		</div>
+<div class="red"> 
 	<h3>SPECIJALNA PONUDA</h3>
-		
-		<div class="kolona dva puna">
-			<div class="crveno_centritano">Ponuda MJESECA!</div><br>Ne propustite Vaše omiljene torte po akcijskim cijenama, samo ovaj mjesec
-			naša najprodavanija <b>Monte torta snižena 30%!</b>
+	<div class="kolona dva puna">
+			<div class="crveno_centritano">Ponuda MJESECA!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='ponudaMjeseca') echo $novosti['text'];}?>
 		</div>
 		
 		<div class="kolona dva puna">
-			<div class="crveno_centritano">Ponuda DANA!</div><br>Samo danas, uz kupovinu <b>bilo koja dva kolača, treći gratis!</b> 
-			Uživajte u divnom danu uz kolač više!
-		</div>
+			<div class="crveno_centritano">Ponuda DANA!</div><br><?php $rezultat = $veza->query("select * from pocetna");
+foreach ($rezultat as $novosti) { if($novosti['tip']=='ponudaDana') echo $novosti['text'];}?>
 	</div>
 
-	<div class="kraj">
+	<div class="kraj red">
 	<p>&copy; Copyright, All Right Reserved</p>
 	</div>
 	</div>
-	
+
 </body>
 </html>
