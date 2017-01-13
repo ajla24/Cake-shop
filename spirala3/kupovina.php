@@ -10,7 +10,7 @@
 <?php
 
 session_start();
-
+try{
 $veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
      $veza->exec("set names utf8");
 
@@ -68,7 +68,12 @@ header('Refresh: 2; URL = index.php');
 }
 
  $veza=null;
+}
 
+catch(PDOException $e)
+{
+	echo $e;
+}
 ?>
 
 <body>
