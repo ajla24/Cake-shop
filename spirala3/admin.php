@@ -36,11 +36,15 @@
 
 $veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
      $veza->exec("set names utf8");
-	 
+	
+if(isset($_SESSION['username']) && $_SESSION['username']=='admin'){
 	$username = $_SESSION['username'];
 	
 
-					echo "Dobrodošli, ".$username."!";
+echo "Dobrodošli, ".$username."!";}
+
+else  header('Refresh: 1; URL = index.php');
+
 				
 			?> </h2>
 
@@ -68,8 +72,9 @@ $veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8p
 	</form>
 	
 
+<?php>
 
-				
+<?>				
 				
 	</div>
 
