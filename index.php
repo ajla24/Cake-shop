@@ -15,7 +15,7 @@
 
 
 
-$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
      $veza->exec("set names utf8");
 	 
 	 $rezultat = $veza->query("select * from pocetna");
@@ -107,7 +107,7 @@ catch(exeption $e)
 	<h2>NOVOSTI I OBAVJEŠTENJA</h2>
 	
 	
- <div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php try{ $veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+ <div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php try{ $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
      $veza->exec("set names utf8");
 	 $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as   $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}} catch(PDOException $e)
     {
