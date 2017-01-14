@@ -48,3 +48,7 @@ podaci se vracaju u obliku json-a
 
 dio pod f)
 izvjestaj u slikama.
+
+
+**** folder spirala3, sadrzi spiralu 4 uradjenu, a ovo sam kopirala sadrzaj fog foldera vani za deploy ako budem morala promjeniti svoju konekciju u
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
