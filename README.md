@@ -36,7 +36,8 @@ admin moze izvrsiti pregled svih podataka klik na admin-opcije nakon logina i tu
 moguce je pregledati sve izbbaze podataka mjenjati, brisati na dugme itd,
 
 dio pod d)
-----
+----nije zavrsen ovaj dio sa bazom, prazila sam upustva ali nece da importuje 
+http://index-cake-shop.44fs.preview.openshiftapps.com/
 
 dio pod e)
 napravljena rest.php , metoda get, kada je ucitan rest.php ocitava se sadrzaj tabele restkorisnici iz baze,
