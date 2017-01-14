@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<kupci>
+	<kupac>
+		<ime>Reuf</ime>
+		<prezime>Refic</prezime>
+		<adresa>Zagrebacka bb</adresa>
+		<email>reuf@hotmail.com</email>
+	</kupac>
+	<kupac>
+		<ime>Maja</ime>
+		<prezime>Majic</prezime>
+		<adresa>Zagrebacka bb</adresa>
+		<email>maja@hotmail.com</email>
+	</kupac>
+	<kupac>
+		<ime>Zdenka</ime>
+		<prezime>Zdenkic</prezime>
+		<adresa>Zagrebacka bb</adresa>
+		<email>zdenka@hotmail.com</email>
+	</kupac>
+	<kupac>
+		<ime>Sok</ime>
+		<prezime>Sokic</prezime>
+		<adresa>Sarajevska bb</adresa>
+		<email>reuf@hotmail.com</email>
+	</kupac>
+	<kupac>
+		<ime>Mujo</ime>
+		<prezime>Mujic</prezime>
+		<adresa>Zenica</adresa>
+		<email>mujo@hotmail.com</email>
+	</kupac>
+	
+	<kupac>
+		<ime>Niko</ime>
+		<prezime>Nikic</prezime>
+		<adresa>Polje</adresa>
+		<email>niko@hotmail.com</email>
+	</kupac>
+	
+</kupci>
