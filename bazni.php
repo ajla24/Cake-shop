@@ -24,9 +24,9 @@
 <?php
 session_start();
 
+$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra");
 
 
-$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
      $veza->exec("set names utf8");
 	 
 	 /////////////////////////
