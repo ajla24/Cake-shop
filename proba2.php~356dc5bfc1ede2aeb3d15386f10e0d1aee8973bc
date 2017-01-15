@@ -34,11 +34,8 @@ echo "uSPJELO";
 
 $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
 
-echo "uSPJELO222";
-		 $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as   $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}
-
-		
-    else echo "nece"; 
+echo "uSPJELO2";
+     
      }
 	 
 	  
@@ -57,20 +54,12 @@ echo "uSPJELO222";
 
 
 <h1><img src="cake-logo.gif" class="logo" alt="logo"></h1>
-<<<<<<< HEAD:proba2.php
 
 	<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php try{ $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
-=======
-<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php try{ $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
->>>>>>> origin/master:proba.php
      $veza->exec("set names utf8");
 	 $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as   $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}} catch(PDOException $e)
     {
     echo $e;
     }?></div>
-<<<<<<< HEAD:proba2.php
-=======
-	
->>>>>>> origin/master:proba.php
 </body>
 </html>
