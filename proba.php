@@ -34,8 +34,11 @@ echo "uSPJELO";
 
 $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
 
-echo "uSPJELO2";
-     
+echo "uSPJELO222";
+		 $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as   $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}
+
+		
+    else echo "nece"; 
      }
 	 
 	  
