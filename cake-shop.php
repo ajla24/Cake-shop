@@ -14,7 +14,7 @@
 	  
 	  session_start();
 
-$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra");
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra");
 
      $veza->exec("set names utf8");
 	 
