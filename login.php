@@ -48,7 +48,7 @@
 	
 	//PDO Database Connection
 	try {
-		$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra"));
+		$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra");
 		$veza->exec("set names utf8");
 	} catch(PDOException $e) {
 		echo 'ERROR: ' . $e->getMessage();
