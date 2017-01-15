@@ -5,7 +5,8 @@
 <?php
 session_start();
 
-$veza = new PDO("mysql:dbname=wt8;host=localhost;charset=utf8", "wt8user", "wt8pass");
+	$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra");
+
      $veza->exec("set names utf8");
 	 
 	 if(isset($_POST['sesija-kontakt'])){
