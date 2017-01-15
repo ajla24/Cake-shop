@@ -18,6 +18,7 @@
 $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
      $veza->exec("set names utf8");
 	 
+	 echo "baza1 uspjelo"
 	 $rezultat = $veza->query("select * from pocetna");
 	 
 	 if (!$rezultat) {
@@ -34,8 +35,51 @@ $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKori
     }
 
 	 
-	
+	try{
 
+
+
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "root", "");
+     $veza->exec("set names utf8");
+	 
+	 echo "baza2 uspjelo"
+	 $rezultat = $veza->query("select * from pocetna");
+	 
+	 if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     }
+	 
+	  }
+	  
+	  catch(PDOException $e)
+    {
+    echo $e->getMessage();
+    }
+
+	try{
+
+
+
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "korisnik", "sifra");
+     $veza->exec("set names utf8");
+	 
+	 echo "baza3 uspjelo"
+	 $rezultat = $veza->query("select * from pocetna");
+	 
+	 if (!$rezultat) {
+          $greska = $veza->errorInfo();
+          print "SQL greška: " . $greska[2];
+          exit();
+     }
+	 
+	  }
+	  
+	  catch(PDOException $e)
+    {
+    echo $e->getMessage();
+    }
 
 
     ?>
