@@ -15,7 +15,7 @@
 
 
 
-$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra"));
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra");
      $veza->exec("set names utf8");
 	 
 	 $rezultat = $veza->query("select * from pocetna");
@@ -116,7 +116,7 @@ catch(exeption $e)
     }?></div>
 
 <div class="kolona dva dupla"><div class="crveno_centritano">Obavjestenje!</div><br><?php try{ 
-$konekcija = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra"));
+$konekcija = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra");
      $veza->exec("set names utf8");
 	 $rezultat = $veza->query("select * from pocetna");
 foreach ($rezultat as $novosti) { if($novosti['tip']=='obavjestenje') echo $novosti['text'];}} catch(exception $e)
@@ -130,7 +130,7 @@ foreach ($rezultat as $novosti) { if($novosti['tip']=='obavjestenje') echo $novo
 	<h3>SPECIJALNA PONUDA</h3>
 	<div class="kolona dva puna">
 			<div class="crveno_centritano">Ponuda MJESECA!</div><br><?php try{ 
-			$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra"));
+			$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7", "korisnik", "sifra");
 			 $rezultat = $veza->query("select * from pocetna");
 			foreach ($rezultat as $novosti) { if($novosti['tip']=='ponudaMjeseca') echo $novosti['text'];}} catch(PDOException $e)
     {
