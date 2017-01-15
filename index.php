@@ -15,10 +15,14 @@
 
 
 
-$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
+$veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "root", "");
      $veza->exec("set names utf8");
+<<<<<<< HEAD
 	 
 	 echo "baza1 uspjelo"
+=======
+	echo "veza ostvarena"; 
+>>>>>>> origin/master
 	 $rezultat = $veza->query("select * from pocetna");
 	 
 	 if (!$rezultat) {
