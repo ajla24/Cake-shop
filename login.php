@@ -44,16 +44,11 @@
 		 
             <?php
 	
-	//DB configuration Constants
-	define('_HOST_NAME_', 'localhost');
-	define('_USER_NAME_', 'wt8user');
-	define('_DB_PASSWORD', 'wt8pass');
-	define('_DATABASE_NAME_', 'wt8');
+
 	
 	//PDO Database Connection
 	try {
-		$veza = new PDO('mysql:host='._HOST_NAME_.';dbname='._DATABASE_NAME_, _USER_NAME_, _DB_PASSWORD);
-		$veza->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$veza = new PDO("mysql:dbname=baza;host=mysql-57-centos7", "korisnik", "sifra"));
 		$veza->exec("set names utf8");
 	} catch(PDOException $e) {
 		echo 'ERROR: ' . $e->getMessage();
