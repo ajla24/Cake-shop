@@ -55,6 +55,11 @@ echo "uSPJELO2";
 
 <h1><img src="cake-logo.gif" class="logo" alt="logo"></h1>
 
-	
+	<div class="kolona dva dupla"><div class="crveno_centritano">Novo u ponudi!!</div><br><?php try{ $veza = new PDO("mysql:dbname=baza;host=mysql-55-centos7;charset=utf8", "imeKorisnika", "sifra");
+     $veza->exec("set names utf8");
+	 $rezultat = $veza->query("select * from pocetna");foreach ($rezultat as   $novosti) { if($novosti['tip']=='novost') echo $novosti['text'];}} catch(PDOException $e)
+    {
+    echo $e;
+    }?></div>
 </body>
 </html>
