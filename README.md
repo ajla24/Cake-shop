@@ -39,6 +39,9 @@ dio pod d)
 http://index-cake-shop.44fs.preview.openshiftapps.com/
 username admin pasword adminpass da se mogu vidjeti admin-opcije
 
+prvi link istice 29.01.
+drugi 20.02. http://index-cake-shop-2.44fs.preview.openshiftapps.com/
+
 dio pod e)
 napravljena rest.php , metoda get, kada je ucitan rest.php ocitava se sadrzaj tabele restkorisnici iz baze,
 kada dodamo na url ?ime=ajla
